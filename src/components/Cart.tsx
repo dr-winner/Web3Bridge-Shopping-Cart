@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { useCart } from '../context/CartContext';
+import { ProductImage } from './ProductImage';
 
 export function Cart() {
   const { cart, removeFromCart, updateQuantity, applyCoupon, getTotal } = useCart();
@@ -38,13 +38,8 @@ export function Cart() {
           <div className="space-y-4">
             {cart.items.map((item) => (
               <div key={item.id} className="flex items-center gap-4 border-b pb-4">
-                <div className="relative h-20 w-20">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover rounded"
-                  />
+                <div className="h-20 w-20">
+                  <ProductImage src={item.image} alt={item.name} />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold">{item.name}</h3>

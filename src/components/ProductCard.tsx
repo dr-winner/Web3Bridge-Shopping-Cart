@@ -1,7 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
 import { Product } from '../types';
 import { useCart } from '../context/CartContext';
+import { ProductImage } from './ProductImage';
 
 interface ProductCardProps {
   product: Product;
@@ -12,14 +12,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="relative h-48 w-full">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          className="object-cover"
-        />
-      </div>
+      <ProductImage src={product.image} alt={product.name} />
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
         <p className="text-sm text-gray-600 mt-1">{product.description}</p>
